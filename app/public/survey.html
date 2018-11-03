@@ -148,7 +148,7 @@
 
             console.log("entered the post");
              var currentURL = window.location.origin;
-            $.ajax({url: currentURL + "/app/data/friends", method: "GET"})
+            $.ajax({url: currentURL + "/api/friends", method: "GET"})
                 .then(function(friendData) {
                     console.log("------------------------------------");
                     console.log("URL: " + currentURL + "/app/data/friends");
