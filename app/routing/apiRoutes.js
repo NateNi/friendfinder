@@ -6,7 +6,7 @@ module.exports = function(app) {
     });
 
     app.post("/api/friends", function(req, res) {
-        friendsData.push(req.body);
+        friendsData.push(req);
         /* let bestCompat = 100;
         let bestIndex = 0;
         for (let i = 0; i < friendsData.length-1; i++){
@@ -20,6 +20,6 @@ module.exports = function(app) {
             }
         }
         res.json(friendsData[bestIndex]); */
-        res.json(req); 
+        res.json(friendsData); 
     });
 }
