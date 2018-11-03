@@ -6,6 +6,7 @@ module.exports = function(app) {
     });
 
     app.post("/api/friends", function(req, res) {
+        console.log(req);
         friendsData.push(req.body);
         let bestCompat = 100;
         let bestIndex = 0;
