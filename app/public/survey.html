@@ -146,18 +146,21 @@
 
         $.post("../data/friends", newProfile, function(data){
 
+            console.log(entered the post);
+             var currentURL = window.location.origin;
+            $.ajax({url: currentURL + "/app/data/friends", method: "GET"})
+                .then(function(friendData) {
+                    console.log("------------------------------------");
+                    console.log("URL: " + currentURL + "/app/data/friends");
+                    console.log("------------------------------------");
+                    console.log(friendData);
+                    console.log("------------------------------------");
+                })
+
         });
 
 
-        var currentURL = window.location.origin;
-        $.ajax({url: currentURL + "/app/data/friends", method: "GET"})
-            .then(function(friendData) {
-                console.log("------------------------------------");
-                console.log("URL: " + currentURL + "/app/data/friends");
-                console.log("------------------------------------");
-                console.log(friendData);
-                console.log("------------------------------------");
-            })
+       
 
 
     });
