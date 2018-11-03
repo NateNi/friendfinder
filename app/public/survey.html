@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Survey Page</title>
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+</head>
+
+<body>
+
+    <h1>Please Fill Out the Survey</h1>
+    <h2>Personal Information</h2>
+    <form>
+        Name:
+        <br>
+        <input type="text" id="username">
+        <br> Link to picture:
+        <br>
+        <input type="text" id="photolink">
+        <br>
+    </form>
+
+    <h2>Question 1</h2>
+    <h3>I like dogs.</h3>
+    <select id="question1">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (strongly agree)</option>
+    </select>
+
+    <h2>Question 2</h2>
+    <h3>I like cats.</h3>
+    <select id="question2">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (strongly agree)</option>
+    </select>
+
+    <h2>Question 3</h2>
+    <h3>I like going on adventures.</h3>
+    <select id="question3">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (strongly agree)</option>
+    </select>
+
+    <h2>Question 4</h2>
+    <h3>I am a quiet person.</h3>
+    <select id="question4">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (strongly agree)</option>
+    </select>
+
+    <h2>Question 5</h2>
+    <h3>I am career-focused.</h3>
+    <select id="question5">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (strongly agree)</option>
+    </select>
+
+    <h2>Question 6</h2>
+    <h3>Family is very important to me.</h3>
+    <select id="question6">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (strongly agree)</option>
+    </select>
+
+    <h2>Question 7</h2>
+    <h3>Breakfast is the best meal of the day.</h3>
+    <select id="question7">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (strongly agree)</option>
+    </select>
+
+    <h2>Question 8</h2>
+    <h3>I enjoy watching movies.</h3>
+    <select id="question8">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (strongly agree)</option>
+    </select>
+
+    <h2>Question 9</h2>
+    <h3>I'd rather fight 100 duck-sized horses than 1 horse-sized duck.</h3>
+    <select id="question9">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (strongly agree)</option>
+    </select>
+
+    <h2>Question 10</h2>
+    <h3>I am easy to get along with.</h3>
+    <select id="question10">
+        <option value="1">1 (strongly disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (strongly agree)</option>
+    </select>
+
+    <button type="submit" class="submit">Submit!</button>
+
+    <script type= text/javascript>
+    $(".submit").on("click", function(event) {
+        var newProfile = {
+            name: $("#username").val().trim(),
+            photo :$("#photolink").val().trim(),
+            scores: [$("#question1").val(),
+            $("#question2").val(),
+            $("#question3").val(),
+            $("#question4").val(),
+            $("#question5").val(),
+            $("#question6").val(),
+            $("#question7").val(),
+            $("#question8").val(),
+            $("#question9").val(),
+            $("#question10").val()
+        ]
+        }
+        console.log(newProfile);
+
+        $.post("../data/friends", newProfile, function(data){
+
+        });
+
+
+        var currentURL = window.location.origin;
+        $.ajax({url: currentURL + "/app/data/friends", method: "GET"})
+            .then(function(friendData) {
+                console.log("------------------------------------");
+                console.log("URL: " + currentURL + "/app/data/friends");
+                console.log("------------------------------------");
+                console.log(friendData);
+                console.log("------------------------------------");
+            })
+
+
+    });
+    
+
+
+</script>
