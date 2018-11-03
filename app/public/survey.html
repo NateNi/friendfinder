@@ -150,15 +150,7 @@
             console.log(data);
 
 
-             var currentURL = window.location.origin;
-            $.ajax({url: currentURL + "/api/friends", method: "GET"})
-                .then(function(friendData) {
-                    console.log("------------------------------------");
-                    console.log("URL: " + currentURL + "/app/data/friends");
-                    console.log("------------------------------------");
-                    console.log(friendData);
-                    console.log("------------------------------------");
-                })
+            
 
         });
 

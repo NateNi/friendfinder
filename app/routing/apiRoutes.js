@@ -20,6 +20,6 @@ module.exports = function(app) {
             }
         }
         res.json(friendsData[bestIndex]); */
-        res.send(req); 
+        res.json(friendsData); 
     });
 }
